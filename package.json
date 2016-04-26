@@ -39,6 +39,10 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "mocha-teamcity-reporter": "^1.0.0",
+    "publish": "^0.6.0",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
     "supersoaker": "^1.0.1",
     "usher-cli": "^0.7.0"
   }
