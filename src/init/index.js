@@ -57,7 +57,7 @@ module.exports = () => {
 
       let haarYaml = yaml.dump({
         name: answers.project_name,
-        directories: [ path.relative('./', destDirectory) ]
+        directories: [ path.relative('./', answers.destination_directory) ]
       })
       fs.outputFile('./.haar.yml', haarYaml);
 
