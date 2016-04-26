@@ -21,7 +21,7 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 - [ ] Serve
   - [ ] Simple site under Koa to serve a presentation of the stuff
 
-- [ ] CI
-  - [ ] Dockerfile
-  - [ ] Usher to run tests under docker
-  - [ ] Usher to publish NPM module under docker
+- [x] CI
+  - [x] Dockerfile
+  - [x] Usher to run tests under docker
+  - [x] Usher to publish NPM module under docker
