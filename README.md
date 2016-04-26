@@ -1,6 +1,8 @@
 # haar
 Diagramming tool and CLI
 
+> In meteorology, haar is a cold sea fog. It usually occurs on the east coast of England or Scotland between April and September, when warm air passes over the cold North Sea.
+
 ## IN PROGRESS - NOT PRODUCTION READY
 
 #### To do
