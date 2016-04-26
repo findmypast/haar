@@ -4,6 +4,9 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 
 > In meteorology, haar is a cold sea fog. It usually occurs on the east coast of England or Scotland between April and September, when warm air passes over the cold North Sea.
 
+[![npm](https://img.shields.io/npm/v/haar.svg?maxAge=2592000)](https://www.npmjs.com/package/haar)
+[![npm](https://img.shields.io/npm/dm/haar.svg)](https://www.npmjs.com/package/haar)
+
 ## IN PROGRESS - NOT PRODUCTION READY
 
 #### To do
