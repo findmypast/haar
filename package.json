@@ -2,15 +2,15 @@
   "name": "haar",
   "version": "0.0.3",
   "description": "Cli tool for building and displaying plant-uml diagrams",
-  "main": "bin/index.js",
   "bin": {
-    "haar": "index.js"
+    "haar": "bin/index.js"
   },
   "scripts": {
     "test": "mocha --reporter nyan --recursive",
     "test:ci": "mocha --reporter mocha-teamcity-reporter --recursive",
     "prepublish-to-npm": "supersoaker squirt -r https://registry.npmjs.org",
-    "publish-to-npm": "publish"
+    "publish-to-npm": "publish",
+    "haar": "node bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
+    "fs-extra": "^0.28.0",
     "inquirer": "^1.0.2",
     "js-yaml": "^3.6.0",
     "lodash": "^4.11.1",
