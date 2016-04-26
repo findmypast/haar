@@ -39,6 +39,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "supersoaker": "^1.0.1",
     "usher-cli": "^0.7.0"
   }
 }
