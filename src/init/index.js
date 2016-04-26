@@ -1,6 +1,9 @@
+'use strict'
+
 const fs = require('fs-extra');
 const path = require('path');
 const inquirer = require('inquirer');
+const yaml = require('js-yaml');
 
 const questions = [
   {
@@ -32,14 +35,31 @@ const questions = [
   }
 ]
 
+const dummyFiles = {
+  Yml: '.haar.yml',
+  Sequence: 'dummy-sequence.puml',
+  Component: 'dummy-component.puml',
+  Activity: 'dummy-activity.puml'
+}
+
 module.exports = () => {
   inquirer.prompt(questions)
     .then(function (answers) {
-      // let templateFolderPath = path.join(__dirname, '../../templates');
-      // let destinationPath = path.resolve(destination_directory);
-      //
-      // fs.mkdirsSync(destPath)
-      // fs.copySync(templateFolderPath, destinationPath)
-    });
+      let templateDirectory = path.join(__dirname, '../../templates');
+      let destDirectory = path.resolve(`${answers.destination_directory}/puml`);
 
+      fs.mkdirsSync(destDirectory)
+
+      fs.copySync(
+        path.join(templateDirectory, dummyFiles[answers.diagram_type]),
+        path.join(destDirectory, `${answers.diagram_name}.puml`)
+      );
+
+      let haarYaml = yaml.dump({
+        name: answers.project_name,
+        directories: [ path.relative('./', destDirectory) ]
+      })
+      fs.outputFile('./.haar.yml', haarYaml);
+
+    });
 }
