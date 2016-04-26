@@ -7,7 +7,10 @@
     "haar": "index.js"
   },
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --reporter nyan --recursive",
+    "test:ci": "mocha --reporter mocha-teamcity-reporter --recursive",
+    "prepublish-to-npm": "supersoaker squirt -r https://registry.npmjs.org",
+    "publish-to-npm": "publish"
   },
   "repository": {
     "type": "git",
@@ -31,11 +34,11 @@
     "inquirer": "^1.0.2",
     "js-yaml": "^3.6.0",
     "lodash": "^4.11.1",
-    "usher-cli": "^0.7.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "usher-cli": "^0.7.0"
   }
 }
