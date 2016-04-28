@@ -7,28 +7,29 @@ const plantuml = require('node-plantuml');
 const path = require('path');
 const _ = require('lodash');
 const async = require('async');
+const chalk = require('chalk');
 
-const generateDiagram = (inFile, done) => {
-  let gen = plantuml.generate(filePath, { format: 'png' });
+const generateDiagram = (rootDirectory, diagramPath, done) => {
+  console.log(chalk.cyan(`  > Generating diagram ${diagramPath}`));
+  let gen = plantuml.generate(diagramPath, { format: 'png' });
   let chunks = [];
 
   gen.out.on('data', chunks.push);
 
   gen.out.on('end', () => {
-    let fileName = path.basename(filePath, '.puml');
+    let fileName = path.basename(diagramPath, '.puml');
     let buffer = Buffer.concat(chunks);
     let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`
-    fs.writeFileSync(outputPath, buffer);
+    fs.outputFileSync(outputPath, buffer);
     done();
   });
 }
 
 const generateDiagramsInFolder = (rootDirectory, done) => {
   let diagramFiles = globby.sync([`./${rootDirectory}/${config.diagramDirectory}/*.puml`]);
-
   async.each(
     diagramFiles,
-    generateDiagram,
+    _.curry(generateDiagram)(rootDirectory),
     done
   );
 }

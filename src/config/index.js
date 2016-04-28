@@ -9,11 +9,14 @@ const defaultConfig = {
   assetDirectory: 'assets'
 };
 
-module.exports = () => {
-  let haarFile = fs.readFileSync('.haar.yml', 'utf8');
-  let ymlConfig = yaml.safeLoad(haarFile);
-  let merged = _.merge(defaultConfig, ymlConfig);
-
-  console.log(merged);
-  return merged;
+const getYml = () => {
+  try {
+    let haarFile = fs.readFileSync('.haar.yml', 'utf8');
+    return yaml.safeLoad(haarFile);
+  } catch (e) {
+    return {};
+  }
 }
+
+let mergedConfig = _.merge(defaultConfig, getYml());
+module.exports = mergedConfig;
