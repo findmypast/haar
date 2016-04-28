@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const inquirer = require('inquirer');
 const yaml = require('js-yaml');
+const config = require('./../config');
 
 const questions = [
   {
@@ -36,7 +37,6 @@ const questions = [
 ]
 
 const dummyFiles = {
-  Yml: '.haar.yml',
   Sequence: 'dummy-sequence.puml',
   Component: 'dummy-component.puml',
   Activity: 'dummy-activity.puml'
@@ -46,7 +46,7 @@ module.exports = () => {
   inquirer.prompt(questions)
     .then(function (answers) {
       let templateDirectory = path.join(__dirname, '../../templates');
-      let destDirectory = path.resolve(`${answers.destination_directory}/puml`);
+      let destDirectory = path.resolve(`${answers.destination_directory}/${config.diagramDirectory}`);
 
       fs.mkdirsSync(destDirectory)
 

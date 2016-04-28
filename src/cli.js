@@ -2,14 +2,11 @@
 
 const program = require('commander');
 const version = require('./../package.json').version
-const logger = require('winston');
 const chalk = require('chalk');
 
 const init = require('./init');
 const build = require('./build');
 const serve = require('./serve');
-
-logger.cli()
 
 program
   .version(version)
