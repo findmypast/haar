@@ -6,7 +6,8 @@ const yaml = require('js-yaml');
 
 const defaultConfig = {
   diagramDirectory: 'diagrams',
-  assetDirectory: 'assets'
+  assetDirectory: 'assets',
+  templateDirectory: 'templates'
 };
 
 const getYml = () => {

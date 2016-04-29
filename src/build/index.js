@@ -1,10 +1,10 @@
 'use strict'
 
 const diagramGenerator = require('./diagram-generator');
-const chalk = require('chalk');
+const async = require('async');
 
 module.exports = () => {
   diagramGenerator((err) => {
-    console.log(chalk.green(`  > Finished generating diagrams`));
+    logger.success("Finished generating diagrams");
   });
 };

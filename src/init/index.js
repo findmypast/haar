@@ -5,6 +5,8 @@ const path = require('path');
 const inquirer = require('inquirer');
 const yaml = require('js-yaml');
 const config = require('./../config');
+const directoryGenerator = require('./diagram-directory-generator');
+const logger = require('./../infrastructure').logger;
 
 const questions = [
   {
@@ -36,30 +38,23 @@ const questions = [
   }
 ]
 
-const dummyFiles = {
-  Sequence: 'dummy-sequence.puml',
-  Component: 'dummy-component.puml',
-  Activity: 'dummy-activity.puml'
-}
-
 module.exports = () => {
   inquirer.prompt(questions)
     .then(function (answers) {
-      let templateDirectory = path.join(__dirname, '../../templates');
-      let destDirectory = path.resolve(`${answers.destination_directory}/${config.diagramDirectory}`);
 
-      fs.mkdirsSync(destDirectory)
-
-      fs.copySync(
-        path.join(templateDirectory, dummyFiles[answers.diagram_type]),
-        path.join(destDirectory, `${answers.diagram_name}.puml`)
+      directoryGenerator(
+        answers.destination_directory,
+        answers.diagram_type,
+        answers.diagram_name
       );
 
       let haarYaml = yaml.dump({
         name: answers.project_name,
         directories: [ path.relative('./', answers.destination_directory) ]
-      })
-      fs.outputFile('./.haar.yml', haarYaml);
+      });
 
+      fs.outputFileSync('./.haar.yml', haarYaml);
+
+      logger.success("Finished initalisation");
     });
 }

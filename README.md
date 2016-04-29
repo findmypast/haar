@@ -11,14 +11,14 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 
 #### To do
 
-- [ ] Init
-  - [ ] Create folder structure based on a template folder
-  - [ ] Create a yaml file with some defaults at the root of repo
+- [x] Init
+  - [x] Create folder structure based on a template folder
+  - [x] Create a yaml file with some defaults at the root of repo
 
 - [ ] Build
   - [ ] Check for locally installed dependencies and give good error messages
-  - [ ] Iterate and find all puml files based on yaml config
-  - [ ] Run puml files through the module for building them
+  - [x] Iterate and find all puml files based on yaml config
+  - [x] Run puml files through the module for building them
   - [ ] Build high level readme's with descriptions and images for github viewing
 
 - [ ] Serve

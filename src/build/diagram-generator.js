@@ -7,10 +7,10 @@ const plantuml = require('node-plantuml');
 const path = require('path');
 const _ = require('lodash');
 const async = require('async');
-const chalk = require('chalk');
+const logger = require('./../infrastructure').logger;
 
 const generateDiagram = (rootDirectory, diagramPath, done) => {
-  console.log(chalk.cyan(`  > Generating diagram ${diagramPath}`));
+  logger.info(`Generating diagram ${diagramPath}`);
   let gen = plantuml.generate(diagramPath, { format: 'png' });
   let chunks = [];
 
