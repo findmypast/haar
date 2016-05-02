@@ -10,7 +10,7 @@ const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
     Sequence: 'dummy-sequence.puml',
     Component: 'dummy-component.puml',
     Activity: 'dummy-activity.puml',
-    ReadmeTemplate: 'readme-template.md'
+    ReadmeTemplate: 'readme-template.hbs'
   };
 
   let templateDirectory = path.join(__dirname, '../../templates');
@@ -26,7 +26,7 @@ const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
 
   logger.info(`Creating diagram ${diagramPath}`);
 
-  let readmePath = path.join(templateDestinationDirectory, `README.md`);
+  let readmePath = path.join(templateDestinationDirectory, `README.hbs`);
   fs.copySync( path.join(templateDirectory, dummyFiles.ReadmeTemplate), readmePath );
 
   logger.info(`Creating readme ${readmePath}`);
