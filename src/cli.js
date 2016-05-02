@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 const program = require('commander');
-const version = require('./../package.json').version
+const version = require('./../package.json').version;
 const chalk = require('chalk');
 
 const init = require('./init');
@@ -9,7 +9,7 @@ const build = require('./build');
 const serve = require('./serve');
 
 program
-  .version(version)
+  .version(version);
 
 program
   .command('init')

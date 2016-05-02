@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const _ = require('lodash');
 const fs = require('fs-extra');
@@ -17,7 +17,7 @@ const getYml = () => {
   } catch (e) {
     return {};
   }
-}
+};
 
 let mergedConfig = _.merge(defaultConfig, getYml());
 module.exports = mergedConfig;

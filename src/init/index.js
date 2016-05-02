@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const fs = require('fs-extra');
 const path = require('path');
@@ -36,7 +36,7 @@ const questions = [
     message: 'What do you want name your diagram',
     default: () => 'dummy-diagram'
   }
-]
+];
 
 module.exports = () => {
   inquirer.prompt(questions)
@@ -57,4 +57,4 @@ module.exports = () => {
 
       logger.success("Finished initalisation");
     });
-}
+};

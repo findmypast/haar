@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const config = require('./../config');
 const fs = require('fs-extra');
@@ -19,11 +19,11 @@ const generateDiagram = (rootDirectory, diagramPath, done) => {
   gen.out.on('end', () => {
     let fileName = path.basename(diagramPath, '.puml');
     let buffer = Buffer.concat(chunks);
-    let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`
+    let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`;
     fs.outputFileSync(outputPath, buffer);
     done();
   });
-}
+};
 
 const generateDiagramsInFolder = (rootDirectory, done) => {
   let diagramFiles = globby.sync([`./${rootDirectory}/${config.diagramDirectory}/*.puml`]);
@@ -32,7 +32,7 @@ const generateDiagramsInFolder = (rootDirectory, done) => {
     _.curry(generateDiagram)(rootDirectory),
     done
   );
-}
+};
 
 const generateAllDiagrams = (done) => {
   async.each(
@@ -40,6 +40,6 @@ const generateAllDiagrams = (done) => {
     generateDiagramsInFolder,
     done
   );
-}
+};
 
 module.exports = generateAllDiagrams;

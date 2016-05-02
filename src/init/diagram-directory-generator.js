@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 const fs = require('fs-extra');
 const path = require('path');
 const config = require('./../config');
-const logger = require('./../infrastructure').logger
+const logger = require('./../infrastructure').logger;
 
 const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
   const dummyFiles = {
@@ -11,13 +11,13 @@ const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
     Component: 'dummy-component.puml',
     Activity: 'dummy-activity.puml',
     ReadmeTemplate: 'readme-template.md'
-  }
+  };
 
   let templateDirectory = path.join(__dirname, '../../templates');
   let diagramDestinationDirectory = path.resolve(`${destinationDirectory}/${config.diagramDirectory}`);
   let templateDestinationDirectory = path.resolve(`${destinationDirectory}/${config.templateDirectory}`);
 
-  fs.mkdirsSync(diagramDestinationDirectory)
+  fs.mkdirsSync(diagramDestinationDirectory);
 
   logger.info(`Creating folder ${diagramDestinationDirectory}`);
 
@@ -30,6 +30,6 @@ const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
   fs.copySync( path.join(templateDirectory, dummyFiles.ReadmeTemplate), readmePath );
 
   logger.info(`Creating readme ${readmePath}`);
-}
+};
 
 module.exports = directoryGenerator;
