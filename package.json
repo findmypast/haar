@@ -1,6 +1,6 @@
 {
   "name": "haar",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Cli tool for building and displaying plant-uml diagrams",
   "bin": {
     "haar": "bin/index.js"
