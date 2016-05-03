@@ -25,7 +25,7 @@ const getDiagramsMetadata = (directory) => {
       readableName: _.startCase(fileName.toLowerCase()),
       hashLink: _.kebabCase(fileName.toLowerCase()),
       staticImagePath: `/static/${directory}/${imageFileName}`,
-      imageRelativePath: `./${path.relative(directory, imagePath)}`
+      imageRelativePath: `./${path.relative(directory, imagePath)}`.replace('\\', '/')
     }
   })
 

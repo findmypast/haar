@@ -8,11 +8,11 @@
 
 I am an example description for a component diagram
 
-![Example Component](./assets\example-component.png)
+![Example Component](./assets/example-component.png)
 
 #### Example Sequence
 
 I am an example description of a sequence diagram
 
-![Example Sequence](./assets\example-sequence.png)
+![Example Sequence](./assets/example-sequence.png)
 
