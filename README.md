@@ -32,13 +32,18 @@ Usage:  [options] [command]
   - [x] Create a yaml file with some defaults at the root of repo
 
 - [ ] Build
-  - [ ] Check for locally installed dependencies and give good error messages
   - [x] Iterate and find all puml files based on yaml config
   - [x] Run puml files through the module for building them
   - [x] Build high level readme's with descriptions and images for github viewing
+  - [ ] Delete orphaned files
+
+- [ ] Pre-Flight-Check
+  - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
+
 
 - [ ] Serve
-  - [ ] Simple site under Koa to serve a presentation of the stuff
+  - [x] Simple site under Express to serve a presentation of the stuff
+  - [ ] Navigation for folders of diagrams
 
 - [x] CI
   - [x] Dockerfile
