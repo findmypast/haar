@@ -1,8 +1,16 @@
 {{#each directories}}
 
 {{#each diagrams}}
-{{{description}}}
-<img src="{{staticImagePath}}" />
+<div class="ui vertical stripe segment">
+  <div class="ui text container">
+    <h3 class="ui header">
+      {{readableName}}
+    </h3>
+    <p>
+      {{description}}
+    </p>
+    <img class="ui fluid image" src="{{staticImagePath}}" />
+  </div>
+</div>
 {{/each}}
-
 {{/each}}
