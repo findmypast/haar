@@ -7,7 +7,23 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 [![npm](https://img.shields.io/npm/v/haar.svg?maxAge=2592000)](https://www.npmjs.com/package/haar)
 [![npm](https://img.shields.io/npm/dm/haar.svg)](https://www.npmjs.com/package/haar)
 
-## IN PROGRESS - NOT PRODUCTION READY
+#### instructions
+
+```
+Usage:  [options] [command]
+
+ Commands:
+
+   init    Initialise a new haar project
+   build   Build diagrams in directories listed in .haar.yml
+   serve   Run a local webserver to serve the diagrams
+
+ Options:
+
+   -h, --help     output usage information
+   -V, --version  output the version number
+```
+
 
 #### To do
 
@@ -19,7 +35,7 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
   - [ ] Check for locally installed dependencies and give good error messages
   - [x] Iterate and find all puml files based on yaml config
   - [x] Run puml files through the module for building them
-  - [ ] Build high level readme's with descriptions and images for github viewing
+  - [x] Build high level readme's with descriptions and images for github viewing
 
 - [ ] Serve
   - [ ] Simple site under Koa to serve a presentation of the stuff

@@ -18,7 +18,7 @@ program
 
 program
   .command('build')
-  .description('Build diagrams')
+  .description('Build diagrams in directories listed in .haar.yml')
   .action(build)
 
 program
