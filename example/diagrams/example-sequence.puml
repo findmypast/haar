@@ -1,5 +1,5 @@
 @description
-Hi, I'm the description of an example sequence diagram
+I am an example description of a sequence diagram
 
 @startuml
 Alice -> Bob: Authentication Request

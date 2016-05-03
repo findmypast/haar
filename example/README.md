@@ -1,11 +1,18 @@
 # Diagrams for example
 
 ## Contents
-- [Example](#example)
+- [Example Component](#example-component)
+- [Example Sequence](#example-sequence)
 
-#### Example
+#### Example Component
 
-Hi, I'm the description of an example sequence diagram
+I am an example description for a component diagram
 
-![Example](./assets\example.png)
+![Example Component](./assets\example-component.png)
+
+#### Example Sequence
+
+I am an example description of a sequence diagram
+
+![Example Sequence](./assets\example-sequence.png)
 

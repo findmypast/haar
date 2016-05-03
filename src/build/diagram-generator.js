@@ -11,18 +11,17 @@ const logger = require('./../infrastructure').logger
 
 const generateDiagram = (rootDirectory, diagramPath, done) => {
   logger.info(`Generating diagram ${diagramPath}`)
+  let fileName = path.basename(diagramPath, '.puml')
+  let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`
   let gen = plantuml.generate(diagramPath, { format: 'png' })
   let chunks = []
 
-  gen.out.on('data', chunks.push)
+  gen.out.on('data', (data) => chunks.push(data))
 
   gen.out.on('end', () => {
-    let fileName = path.basename(diagramPath, '.puml')
     let buffer = Buffer.concat(chunks)
-    let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`
-    logger.info(`Saving image ${outputPath}`)
-    fs.outputFileSync(outputPath, buffer)
-    done()
+    logger.info(`Saving image ${outputPath} ${chunks.length}`)
+    fs.outputFile(outputPath, buffer, done)
   })
 }
 
