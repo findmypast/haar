@@ -40,7 +40,6 @@ Usage:  [options] [command]
 - [ ] Pre-Flight-Check
   - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
 
-
 - [ ] Serve
   - [x] Simple site under Express to serve a presentation of the stuff
   - [ ] Navigation for folders of diagrams
