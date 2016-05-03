@@ -1,15 +1,15 @@
-# Diagrams for {{name}}
+# Diagrams for {{directory}}
 
 ## Contents
-{{#list diagrams}}
-- [{{titleReadable}}](#{{titleKebabCase}})
-{{/list}}
+{{#each diagrams}}
+- [{{readableName}}](#{{hashLink}})
+{{/each}}
 
-{{#list diagrams}}
-#### {{titleReadable}}
+{{#each diagrams}}
+#### {{readableName}}
 
-{{description}}
+{{{description}}}
 
-![{{titleReadable}}]({{imageRelativePath}})
+![{{readableName}}]({{imageRelativePath}})
 
-{{/list}}
+{{/each}}

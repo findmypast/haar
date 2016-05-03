@@ -1,3 +1,6 @@
+@description
+Hi, I'm the description of an example sequence diagram
+
 @startuml
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response

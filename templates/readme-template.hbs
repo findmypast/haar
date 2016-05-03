@@ -1,1 +1,15 @@
-## {{name}}
+# Diagrams for {{directory}}
+
+## Contents
+{{#list diagrams}}
+- [{{readableName}}](#{{hashLink}})
+{{/list}}
+
+{{#list diagrams}}
+#### {{readableName}}
+
+{{{description}}}
+
+![{{readableName}}]({{imageRelativePath}})
+
+{{/list}}
