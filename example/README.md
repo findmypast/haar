@@ -14,5 +14,5 @@ I am an example description for a component diagram
 
 I am an example description of a sequence diagram
 
-![Example Sequence](./assets\example-sequence.png)
+![Example Sequence](.\assets\example-sequence.png)
 
