@@ -35,15 +35,15 @@ Usage:  [options] [command]
   - [x] Iterate and find all puml files based on yaml config
   - [x] Run puml files through the module for building them
   - [x] Build high level readme's with descriptions and images for github viewing
+  - [x] Option for SVG or PNG or both
   - [ ] Delete orphaned files
-  - [ ] Option for SVG or PNG or both
 
 - [ ] Pre-Flight-Check
   - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
 
-- [ ] Serve
+- [x] Serve
   - [x] Simple site under Express to serve a presentation of the stuff
-  - [ ] Navigation for folders of diagrams
+  - [x] Navigation for folders of diagrams
 
 - [x] CI
   - [x] Dockerfile
