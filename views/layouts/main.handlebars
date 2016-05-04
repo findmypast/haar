@@ -31,7 +31,6 @@
   <div class="ui fixed inverted menu">
     <div class="ui container">
       <a href="#" class="header item">
-        <!-- <img class="logo" src="assets/images/logo.png"> -->
         {{{logo}}}
 
         {{projectName}}
@@ -49,31 +48,38 @@
     </div>
   </div>
 
-  <!-- Sidebar Menu -->
-  <!-- <div class="ui vertical inverted sidebar menu">
-    {{#each directories}}
-      <a class="active item" href="#{{directory}}">directory</a>
-    {{/each}}
-  </div> -->
   <div class="ui main text container">
+    <div class="ui styled fluid accordion">
     {{#each directories}}
-    {{#each diagrams}}
-    <div class="ui vertical stripe segment">
-      <div class="ui text container">
-        <h3 class="ui header">
-          {{readableName}}
-        </h3>
-        <p>
-          {{description}}
-        </p>
-        <img class="ui fluid image" src="{{staticImagePath}}" />
+      <div class="title">
+        <i class="dropdown icon"></i>
+        {{directory}}
       </div>
+      <div class="content">
+        {{#each diagrams}}
+        <div class="ui text container">
+          <h3 class="ui header">
+            {{readableName}}
+          </h3>
+          <p>
+            {{description}}
+          </p>
+          <img class="ui fluid image" src="{{staticImagePath}}" />
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
-    {{/each}}
   </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.ui.accordion').accordion();
+  });
+</script>
 </body>
 </html>

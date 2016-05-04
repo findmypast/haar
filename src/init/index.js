@@ -1,12 +1,9 @@
 'use strict'
 
-const fs = require('fs-extra')
-const path = require('path')
 const inquirer = require('inquirer')
-const yaml = require('js-yaml')
-const config = require('./../config')
 const directoryGenerator = require('./diagram-directory-generator')
 const logger = require('./../infrastructure').logger
+const haarYaml = require('./haar-yaml')
 
 const questions = [
   {
@@ -47,12 +44,10 @@ module.exports = () => {
         answers.diagram_name
       )
 
-      let haarYaml = yaml.dump({
-        projectName: answers.project_name,
-        directories: [ path.relative('./', answers.destination_directory) ]
-      })
-
-      fs.outputFileSync('./.haar.yml', haarYaml)
+      haarYaml.createDefaultFile(
+        answers.project_name,
+        answers.destination_directory
+      )
 
       logger.success('Finished initalisation')
     })
