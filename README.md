@@ -41,9 +41,10 @@ Usage:  [options] [command]
 - [ ] Pre-Flight-Check
   - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
 
-- [x] Serve
+- [ ] Serve
   - [x] Simple site under Express to serve a presentation of the stuff
   - [x] Navigation for folders of diagrams
+  - [ ] Folder metadata (i.e display name, display in web)
 
 - [x] CI
   - [x] Dockerfile
