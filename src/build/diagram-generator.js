@@ -9,11 +9,11 @@ const _ = require('lodash')
 const async = require('async')
 const logger = require('./../infrastructure').logger
 
-const generateDiagram = (rootDirectory, diagramPath, done) => {
+const generateDiagram = (rootDirectory, diagramPath, format, done) => {
   logger.info(`Generating diagram ${diagramPath}`)
   let fileName = path.basename(diagramPath, '.puml')
-  let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.png`
-  let gen = plantuml.generate(diagramPath, { format: 'png' })
+  let outputPath = `${rootDirectory}/${config.assetDirectory}/${fileName}.${format}`
+  let gen = plantuml.generate(diagramPath, { format: format })
   let chunks = []
 
   gen.out.on('data', (data) => chunks.push(data))
@@ -25,11 +25,19 @@ const generateDiagram = (rootDirectory, diagramPath, done) => {
   })
 }
 
+const generateDiagrams = (rootDirectory, diagramPath, done) => {
+  let generators = config.formats.map((format) => {
+    return _.curry(generateDiagram)(rootDirectory, diagramPath, format)
+  })
+
+  async.parallel(generators, done)
+}
+
 const generateDiagramsInFolder = (rootDirectory, done) => {
   let diagramFiles = globby.sync([`./${rootDirectory}/${config.diagramDirectory}/*.puml`])
   async.each(
     diagramFiles,
-    _.curry(generateDiagram)(rootDirectory),
+    _.curry(generateDiagrams)(rootDirectory),
     done
   )
 }
