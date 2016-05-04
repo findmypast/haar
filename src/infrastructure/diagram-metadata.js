@@ -20,13 +20,16 @@ const getDiagramsMetadata = (directory) => {
     let fileName = path.basename(filePath, '.puml')
     let imagePath = `${directory}/${config.assetDirectory}/${fileName}.png`
     let imageFileName = `${fileName}.png`
+    let svgFileName = `${fileName}.svg`
 
     return {
+      directory: directory,
       filePath: filePath,
       description: getDiagramDescription(filePath),
       readableName: _.startCase(fileName.toLowerCase()),
       hashLink: _.kebabCase(fileName.toLowerCase()),
       staticImagePath: `/static/${directory}/${imageFileName}`,
+      staticSvgPath: `/static/${directory}/${svgFileName}`,
       imageRelativePath: `./${path.relative(directory, imagePath)}`.replace('\\', '/')
     }
   })
@@ -39,6 +42,7 @@ module.exports = {
     return _.map(config.directories, directory => {
       return {
         directory: directory,
+        directoryReadable: _.startCase(directory),
         diagrams: getDiagramsMetadata(directory)
       }
     })

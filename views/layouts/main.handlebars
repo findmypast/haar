@@ -37,48 +37,49 @@
       </a>
       {{#each directories}}
       <div class="ui simple dropdown item">
-        {{directory}} <i class="dropdown icon"></i>
-        <div class="menu">
-          {{#each diagrams}}
-          <a class="item" href="#{{hashLink}}">{{readableName}}</a>
-          {{/each}}
-        </div>
+        <a href="#/{{directory}}">{{directoryReadable}}</a>
       </div>
       {{/each}}
     </div>
   </div>
 
   <div class="ui main text container">
-    <div class="ui styled fluid accordion">
+    <div class="ui top attached tabular menu">
     {{#each directories}}
-      <div class="title">
-        <i class="dropdown icon"></i>
-        {{directory}}
-      </div>
-      <div class="content">
-        {{#each diagrams}}
-        <div class="ui text container">
-          <h3 class="ui header">
-            {{readableName}}
-          </h3>
-          <p>
-            {{description}}
-          </p>
-          <img class="ui fluid image" src="{{staticImagePath}}" />
-        </div>
-        {{/each}}
+      <a class="item" data-tab="{{directory}}">
+        {{directoryReadable}}
+      </a>
+    {{/each}}
+    </div>
+    {{#each directories}}
+    <div class="ui bottom attached tab segment" data-tab="{{directory}}">
+      {{#each diagrams}}
+      <div class="ui text container">
+        <h3 class="ui header">
+          {{readableName}}
+        </h3>
+        <p>
+          {{description}}
+        </p>
+        <object class="ui fluid image" data="{{staticSvgPath}}" type="image/svg+xml">
+          <img src="{{staticImagePath}}" />
+        </object>
       </div>
       {{/each}}
     </div>
+    {{/each}}
   </div>
 
 
-
-<script src="https://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.ui.accordion').accordion();
+    $('.menu .item').tab({
+      history: true,
+      historyType: 'hash'
+    });
   });
 </script>
 </body>
