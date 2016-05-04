@@ -1,3 +1,5 @@
+'use strict'
+
 const globby = require('globby')
 const fs = require('fs-extra')
 const _ = require('lodash')

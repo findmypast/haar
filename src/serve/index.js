@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
+const _ = require('lodash')
 const config = require('./../config')
 const logger = require('./../infrastructure').logger
 const diagramMetadata = require('./../infrastructure').diagramMetadata
@@ -12,11 +13,14 @@ module.exports = () => {
     directories: diagramMetadata.getDiagramDirectories()
   }
 
+  const viewData = _.merge({}, config, directoriesOfDiagrams)
+
   config.directories.map((directory) => {
     const fileDir = `${directory}/${config.assetDirectory}`
     const webDir = `/static/${directory}`
     logger.info(`Serving files from '${fileDir}' at '${webDir}'`)
     app.use(webDir, express.static(fileDir))
+    app.use(express.static('static'))
   })
 
   app.engine('handlebars', exphbs({
@@ -25,7 +29,7 @@ module.exports = () => {
   app.set('view engine', 'handlebars')
 
   app.get('/', function (req, res) {
-    res.render('home', directoriesOfDiagrams)
+    res.render('home', viewData)
   })
 
   app.listen(port, () => {

@@ -36,6 +36,7 @@ Usage:  [options] [command]
   - [x] Run puml files through the module for building them
   - [x] Build high level readme's with descriptions and images for github viewing
   - [ ] Delete orphaned files
+  - [ ] Option for SVG or PNG or both
 
 - [ ] Pre-Flight-Check
   - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages

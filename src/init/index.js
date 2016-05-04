@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const fs = require('fs-extra');
-const path = require('path');
-const inquirer = require('inquirer');
-const yaml = require('js-yaml');
-const config = require('./../config');
-const directoryGenerator = require('./diagram-directory-generator');
-const logger = require('./../infrastructure').logger;
+const fs = require('fs-extra')
+const path = require('path')
+const inquirer = require('inquirer')
+const yaml = require('js-yaml')
+const config = require('./../config')
+const directoryGenerator = require('./diagram-directory-generator')
+const logger = require('./../infrastructure').logger
 
 const questions = [
   {
@@ -36,25 +36,24 @@ const questions = [
     message: 'What do you want name your diagram',
     default: () => 'dummy-diagram'
   }
-];
+]
 
 module.exports = () => {
   inquirer.prompt(questions)
     .then(function (answers) {
-
       directoryGenerator(
         answers.destination_directory,
         answers.diagram_type,
         answers.diagram_name
-      );
+      )
 
       let haarYaml = yaml.dump({
-        name: answers.project_name,
+        projectName: answers.project_name,
         directories: [ path.relative('./', answers.destination_directory) ]
-      });
+      })
 
-      fs.outputFileSync('./.haar.yml', haarYaml);
+      fs.outputFileSync('./.haar.yml', haarYaml)
 
-      logger.success("Finished initalisation");
-    });
-};
+      logger.success('Finished initalisation')
+    })
+}
