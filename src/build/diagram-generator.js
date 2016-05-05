@@ -35,15 +35,16 @@ const generateDiagrams = (rootDirectory, diagramPath, done) => {
 
 const generateDiagramsInFolder = (directoryData, done) => {
   const diagramFiles = globby.sync([`./${directoryData.path}/${config.diagramDirectory}/*.puml`])
-  async.each(
+  async.eachLimit(
     diagramFiles,
+    3,
     _.curry(generateDiagrams)(directoryData.path),
     done
   )
 }
 
 const generateAllDiagrams = (done) => {
-  async.each(
+  async.eachSeries(
     config.directories,
     generateDiagramsInFolder,
     done
