@@ -26,7 +26,7 @@ module.exports = () => {
   app.engine('handlebars', exphbs({
     defaultLayout: 'main'
   }))
-  const viewPath = path.resolve('./views')
+  const viewPath = path.resolve(`${__dirname}/../../views`)
   logger.info(`Serving views from: ${viewPath}`)
   app.set('views', viewPath)
 
