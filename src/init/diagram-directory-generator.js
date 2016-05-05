@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-const fs = require('fs-extra');
-const path = require('path');
-const config = require('./../config');
-const logger = require('./../infrastructure').logger;
+const fs = require('fs-extra')
+const path = require('path')
+const config = require('./../config')
+const logger = require('./../infrastructure').logger
 
 const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
   const dummyFiles = {
@@ -11,25 +11,25 @@ const directoryGenerator = (destinationDirectory, diagramType, diagramName) => {
     Component: 'dummy-component.puml',
     Activity: 'dummy-activity.puml',
     ReadmeTemplate: 'readme-template.hbs'
-  };
+  }
 
-  let templateDirectory = path.join(__dirname, '../../templates');
-  let diagramDestinationDirectory = path.resolve(`${destinationDirectory}/${config.diagramDirectory}`);
-  let templateDestinationDirectory = path.resolve(`${destinationDirectory}/${config.templateDirectory}`);
+  let templateDirectory = path.join(__dirname, '../../templates')
+  let diagramDestinationDirectory = path.resolve(`${destinationDirectory}/${config.diagramDirectory}`)
+  let templateDestinationDirectory = path.resolve(`${destinationDirectory}/${config.templateDirectory}`)
 
-  fs.mkdirsSync(diagramDestinationDirectory);
+  fs.mkdirsSync(diagramDestinationDirectory)
 
-  logger.info(`Creating folder ${diagramDestinationDirectory}`);
+  logger.info(`Creating folder ${diagramDestinationDirectory}`)
 
-  let diagramPath = path.join(diagramDestinationDirectory, `${diagramName}.puml`);
-  fs.copySync(path.join(templateDirectory, dummyFiles[diagramType]), diagramPath);
+  let diagramPath = path.join(diagramDestinationDirectory, `${diagramName}.puml`)
+  fs.copySync(path.join(templateDirectory, dummyFiles[diagramType]), diagramPath)
 
-  logger.info(`Creating diagram ${diagramPath}`);
+  logger.info(`Creating diagram ${diagramPath}`)
 
-  let readmePath = path.join(templateDestinationDirectory, `README.hbs`);
-  fs.copySync( path.join(templateDirectory, dummyFiles.ReadmeTemplate), readmePath );
+  let readmePath = path.join(templateDestinationDirectory, 'README.hbs')
+  fs.copySync(path.join(templateDirectory, dummyFiles.ReadmeTemplate), readmePath)
 
-  logger.info(`Creating readme ${readmePath}`);
-};
+  logger.info(`Creating readme ${readmePath}`)
+}
 
-module.exports = directoryGenerator;
+module.exports = directoryGenerator

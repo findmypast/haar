@@ -7,11 +7,11 @@ const config = require('./../config')
 const Handlebars = require('handlebars')
 
 const generateReadme = (directoryData) => {
-  const readmeOutputPath = `${directoryData.directory}/README.md`
+  const readmeOutputPath = `${directoryData.directory.path}/README.md`
 
   logger.info(`Generating readme at ${readmeOutputPath}`)
 
-  const readmeTemplatePath = `${directoryData.directory}/${config.templateDirectory}/README.hbs`
+  const readmeTemplatePath = `${directoryData.directory.path}/${config.templateDirectory}/README.hbs`
   const templateData = fs.readFileSync(readmeTemplatePath, 'utf8')
   const compiledTemplate = Handlebars.compile(templateData)
   const readmeData = compiledTemplate(directoryData)
