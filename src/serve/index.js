@@ -13,8 +13,8 @@ const port = process.env.PORT || 3000
 
 module.exports = () => {
   let viewData = _.cloneDeep(config)
-  viewData.directories = diagramMetadata.getDiagramDirectories()
-  console.log(viewData)
+  let directories = diagramMetadata.getDiagramDirectories()
+  viewData.directories = _.filter(directories, (dir) => dir.serve)
   viewData.directories.forEach((directory) => {
     const fileDir = `${directory.path}/${config.assetDirectory}`
     const webDir = `/static/${directory.path}`
