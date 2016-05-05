@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
 const _ = require('lodash')
+const path = require('path')
 const config = require('./../config')
 const logger = require('./../infrastructure').logger
 const diagramMetadata = require('./../infrastructure').diagramMetadata
@@ -26,6 +27,10 @@ module.exports = () => {
   app.engine('handlebars', exphbs({
     defaultLayout: 'main'
   }))
+  const viewPath = path.resolve('./views')
+  logger.info(`Serving views from: ${viewPath}`)
+  app.set('views', viewPath)
+
   app.set('view engine', 'handlebars')
 
   app.get('/', function (req, res) {
