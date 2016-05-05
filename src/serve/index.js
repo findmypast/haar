@@ -23,13 +23,14 @@ module.exports = () => {
     app.use(express.static('static'))
   })
 
-  app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
-  }))
   const viewPath = path.resolve(`${__dirname}/../../views`)
   logger.info(`Serving views from: ${viewPath}`)
   app.set('views', viewPath)
 
+  app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: `${viewPath}/layouts`
+  }))
   app.set('view engine', 'handlebars')
 
   app.get('/', function (req, res) {
