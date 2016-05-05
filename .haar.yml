@@ -1,13 +1,9 @@
-projectName: Haar Example Project
+projectName: Haar example project
 directories:
   - path: haar
     hashLink: haar
     serve: true
     readableName: Haar
-  - path: haar-second
-    hashLink: haar-second
-    serve: true
-    readableName: Haar Second
 formats:
   - png
   - svg

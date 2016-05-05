@@ -4,8 +4,7 @@
 - [Haar](#haar)
 
 #### Haar
-
-I am an example description for a sequence diagram
+I am an example description for an activity diagram
 
 ![Haar](./assets/haar.png)
 

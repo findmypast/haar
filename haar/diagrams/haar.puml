@@ -1,10 +1,15 @@
 @description
-I am an example description for a sequence diagram
+I am an example description for an activity diagram
 
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+start
+
+repeat
+  :read data;
+  :generate diagrams;
+repeat while (more data?)
+
+stop
+
 @enduml
