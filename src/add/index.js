@@ -3,7 +3,6 @@
 const inquirer = require('inquirer')
 const directoryGenerator = require('./diagram-directory-generator')
 const logger = require('./../infrastructure').logger
-const haarYaml = require('./haar-yaml')
 
 const questions = [
   {
@@ -14,13 +13,13 @@ const questions = [
   {
     type: 'input',
     name: 'destination_directory',
-    message: 'Where do you want to create your directory for diagrams?',
+    message: 'Which directory should be used to store this diagram?',
     default: () => './diagrams'
   },
   {
     type: 'list',
     name: 'diagram_type',
-    message: 'What kind of diagram would you like first?',
+    message: 'What kind of diagram would you like to add?',
     choices: [
       'Sequence',
       'Activity',
@@ -39,14 +38,10 @@ module.exports = () => {
   inquirer.prompt(questions)
     .then(function (answers) {
       directoryGenerator(
+        answers.project_name,
         answers.destination_directory,
         answers.diagram_type,
         answers.diagram_name
-      )
-
-      haarYaml.createDefaultFile(
-        answers.project_name,
-        answers.destination_directory
       )
 
       logger.success('Finished initalisation')

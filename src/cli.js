@@ -5,6 +5,7 @@ const version = require('./../package.json').version
 const chalk = require('chalk')
 
 const init = require('./init')
+const add = require('./add')
 const build = require('./build')
 const serve = require('./serve')
 
@@ -15,6 +16,11 @@ program
   .command('init')
   .description('Initialise a new haar project')
   .action(init)
+
+program
+  .command('add')
+  .description('Add a new diagram to a haar project')
+  .action(add)
 
 program
   .command('build')

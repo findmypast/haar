@@ -1,5 +1,7 @@
 'use strict'
 
+const haarYaml = require('./haar-yaml')
+const cleanupAssets = require('./cleanup-assets')
 const diagramGenerator = require('./diagram-generator')
 const readmeGenerator = require('./readme-generator')
 const async = require('async')
@@ -15,6 +17,8 @@ const onBuildComplete = (err, results) => {
 
 module.exports = () => {
   async.series([
+    haarYaml,
+    cleanupAssets,
     diagramGenerator,
     readmeGenerator
   ], onBuildComplete)

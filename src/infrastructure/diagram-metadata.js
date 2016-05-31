@@ -38,6 +38,12 @@ const getDiagramsMetadata = (directoryPath) => {
 
 module.exports = {
   getDiagramDirectories: () => {
+    let existing = fs.readdirSync('.');
+
+    config.directories = _.filter(config.directories, function(directory) {
+      return _.includes(existing, directory.path)
+    })
+
     return _.map(config.directories, directory => {
       let clonedDirectory = _.cloneDeep(directory)
       clonedDirectory.diagrams = getDiagramsMetadata(clonedDirectory.path)
