@@ -15,7 +15,8 @@ Usage:  [options] [command]
  Commands:
 
    init    Initialise a new haar project
-   build   Build diagrams in directories listed in .haar.yml
+   add     Add a new diagram to an existing project or create a new project
+   build   Build diagrams in project directories listed in .haar.yml
    serve   Run a local webserver to serve the diagrams
 
  Options:
@@ -31,12 +32,13 @@ Usage:  [options] [command]
   - [x] Create folder structure based on a template folder
   - [x] Create a yaml file with some defaults at the root of repo
 
-- [ ] Build
+- [x] Build
   - [x] Iterate and find all puml files based on yaml config
   - [x] Run puml files through the module for building them
   - [x] Build high level readme's with descriptions and images for github viewing
   - [x] Option for SVG or PNG or both
-  - [ ] Delete orphaned files
+  - [x] Delete orphaned files
+  - [x] Create 'add' command to add new diagrams to projects without manual editing of the `.haar.yml` file
 
 - [ ] Pre-Flight-Check
   - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
