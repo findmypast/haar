@@ -1,4 +1,4 @@
-# haar
+# Haar
 
 Haar is a command line tool to help you write diagrams with plant uml and then surface and expose those diagrams to the people on your team.
 
@@ -7,7 +7,25 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 [![npm](https://img.shields.io/npm/v/haar.svg)](https://www.npmjs.com/package/haar)
 [![npm](https://img.shields.io/npm/dm/haar.svg)](https://www.npmjs.com/package/haar)
 
-#### instructions
+### Setup
+For the best experience of developing diagrams using Haar in Linux
+#### Linux (Debian-likes)
+Install Haar:
+```
+npm i -g haar
+```
+Install [Graphviz](http://www.graphviz.org/) to be able to generate all diagram types.
+```
+sudo apt-get remove libpathplan4
+sudo apt-get install graphviz
+```
+
+Install [Plant-UML Viewer](https://atom.io/packages/plantuml-viewer) (Atom package)
+```
+apm install plantuml-viewer
+```
+
+### Instructions
 
 ```
 Usage:  [options] [command]
@@ -25,8 +43,7 @@ Usage:  [options] [command]
    -V, --version  output the version number
 ```
 
-
-#### To do
+### To do
 
 - [x] Init
   - [x] Create folder structure based on a template folder
