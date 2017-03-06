@@ -7,8 +7,18 @@ Haar is a command line tool to help you write diagrams with plant uml and then s
 [![npm](https://img.shields.io/npm/v/haar.svg)](https://www.npmjs.com/package/haar)
 [![npm](https://img.shields.io/npm/dm/haar.svg)](https://www.npmjs.com/package/haar)
 
+### TODO
+
+- [ ] Get a svg diagram to appear in the gatsby site
+- [ ] Hook up gatsby and Semantic UI
+- [ ] Hot updating of puml files
+- [ ] Hot updating of descriptions
+- [ ] Build site and diagrams to a specific folder
+- [ ] Haar to inquirer by default
+
 ### Setup
 For the best experience of developing diagrams using Haar in Linux
+
 #### Linux (Debian-likes)
 Install Haar:
 ```
@@ -42,31 +52,3 @@ Usage:  [options] [command]
    -h, --help     output usage information
    -V, --version  output the version number
 ```
-
-### To do
-
-- [x] Init
-  - [x] Create folder structure based on a template folder
-  - [x] Create a yaml file with some defaults at the root of repo
-
-- [x] Build
-  - [x] Iterate and find all puml files based on yaml config
-  - [x] Run puml files through the module for building them
-  - [x] Build high level readme's with descriptions and images for github viewing
-  - [x] Option for SVG or PNG or both
-  - [x] Delete orphaned files
-  - [x] Create 'add' command to add new diagrams to projects without manual editing of the `.haar.yml` file
-
-- [ ] Pre-Flight-Check
-  - [ ] Check for locally installed dependencies (graphviz, java) and give good error messages
-
-- [x] Serve
-  - [x] Simple site under Express to serve a presentation of the stuff
-  - [x] Navigation for folders of diagrams
-  - [x] Fix bug with views directory when installing globally
-  - [x] Directories metadata (i.e display name, display in web)
-
-- [x] CI
-  - [x] Dockerfile
-  - [x] Usher to run tests under docker
-  - [x] Usher to publish NPM module under docker
