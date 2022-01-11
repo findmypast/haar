@@ -1,4 +1,4 @@
-# Haar
+# Haar - DEPRECATED 
 
 Haar is a command line tool to help you write diagrams with plant uml and then surface and expose those diagrams to the people on your team.
 
